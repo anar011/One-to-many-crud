@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Experts>
+
+@{
+    ViewData["Title"] = "Experts";
+}
+
+
+<div class="container my-5">
+
+    <a class="btn btn-success text-white" asp-action="Create" style="float:right">Create</a>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Profession
+                    </th>
+                    <th>
+                        Operations
+                    </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var experts in Model)
+                {
+                    <tr>
+                        <td class="py-1">
+                            <img src="~/img/@experts.Image" style="width:70px;height:70px" alt="image" />
+                        </td>
+
+                        <td class="py-1">
+                            @Html.Raw(experts.Name)
+                        </td>
+                        <td class="py-1">
+                            @Html.Raw(experts.Profession)
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-info" asp-action="Detail" asp-route-id="@experts.Id">Info</a>
+                            <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@experts.Id">Edit</a>
+                            <form style="display: inline-block" asp-action="Delete" asp-route-id="@experts.Id" method="post">
+                                <button type="submit" class="btn btn-outline-danger">Delete</button>
+                            </form>
+
+                        </td>
+
+                    </tr>
+                }
+
+
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

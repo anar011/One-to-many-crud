@@ -1,0 +1,44 @@
+﻿@model SliderInfo
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="container my-5">
+    @*///(enctype="multipart/form-data")- IFormFile ile properti qoyduqda classin icerisine inputuu verende onu file kimi form submit olanda gonderecek   *@
+    <form class="forms-sample" asp-action="Create" method="post" enctype="multipart/form-data">
+
+        <input class="form-control" id="customFile" asp-for="Photo" />            @* /// Photo-nu goturub onun icerisinnen   adini goturub bazaya yazmaq ,goturulen photonu file seklinde locala yazmaq  *@
+
+        <span class="text-danger" asp-validation-for="Photo"></span>     @* span-error mesajin spanin icerisinde gorsenmesi ucun *@
+
+
+        <textarea class="form-control" id="category-text" asp-for="Title" rows="5"></textarea>
+        <span class="text-danger" asp-validation-for="Title"></span>
+
+        <textarea class="form-control" id="category-text" asp-for="Description" rows="5"></textarea>         @* /// Photo-nu goturub onun icerisinnen   adini goturub bazaya yazmaq ,goturulen photonu file seklinde locala yazmaq  *@
+
+        <span class="text-danger" asp-validation-for="Description"></span>
+
+       
+        <div class="button my-3">
+
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <a class="btn btn-light" asp-action="Index">Cancel</a>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts{
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+  
+    <script>
+        CKEDITOR.replace("category-text");
+ 
+
+    </script>
+
+}

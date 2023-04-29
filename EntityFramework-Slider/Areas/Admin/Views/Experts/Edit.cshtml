@@ -1,0 +1,40 @@
+﻿@model Experts
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<idv class="container my-5">
+
+
+    <div class="slider-content my-5">
+        <img src="~/img/@Model.Image" />
+    </div>
+
+    <form class="forms-sample" asp-action="Edit" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
+
+        <textarea class="form-control" id="category-text" asp-for="Name" rows="5"></textarea>
+        <span class="text-danger" asp-validation-for="Name"></span>
+        <textarea class="form-control" id="category-text" asp-for="Profession" rows="5"></textarea>
+        <span class="text-danger" asp-validation-for="Profession"></span>
+
+        <input class="form-control" id="customFile" asp-for="Photo" />
+        <div class="button my-3">
+            <span class="text-danger" asp-validation-for="Photo"></span>
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <a class="btn btn-light" asp-action="Index">Cancel</a>
+        </div>
+
+    </form>
+
+</idv>
+
+@section Scripts{
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("category-text");
+
+    </script>
+
+}

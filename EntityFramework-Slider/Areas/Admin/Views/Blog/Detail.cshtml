@@ -1,0 +1,18 @@
+﻿@model Blog
+
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+
+<div class="container my-5">
+
+    <input type="text" class="form-control" id="customFile" asp-for="Header" disabled="disabled" />
+    <input type="text" class="form-control" id="customFile" asp-for="Description" disabled="disabled" />
+    <input type="text" class="form-control" id="customFile" asp-for="Image" disabled="disabled" />
+    <input type="text" class="form-control" id="customFile" asp-for="Date" disabled="disabled" />
+    <a class="btn btn-light mt-3" asp-action="Index">Cancel</a>
+
+</div>

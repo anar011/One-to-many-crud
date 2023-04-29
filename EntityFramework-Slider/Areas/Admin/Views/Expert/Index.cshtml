@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ExpertHeader>
+
+@{
+    ViewData["Title"] = "Expert";
+}
+
+
+<div class="container my-5">
+
+    <a class="btn btn-success text-white" asp-action="Create" style="float:right">Create</a>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        Description
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var expert in Model)
+                {
+                    <tr>
+                        <td class="py-1">
+                            @expert.Title
+                        </td>
+
+                        <td class="py-1">
+                            @expert.Description
+                        </td>
+
+                        <td>
+                            <a class="btn btn-outline-info" asp-action="Detail" asp-route-id="@expert.Id">Info</a>
+                            <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@expert.Id">Edit</a>
+                            <form style="display: inline-block" asp-action="SoftDelete" asp-route-id="@expert.Id" method="post">
+                                <button type="submit" class="btn btn-outline-danger">Delete</button>
+                            </form>
+
+                        </td>
+
+                    </tr>
+                }
+
+
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
