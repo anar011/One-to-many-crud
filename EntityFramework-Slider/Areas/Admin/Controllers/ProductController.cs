@@ -229,5 +229,46 @@ namespace EntityFramework_Slider.Areas.Admin.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id is null) return BadRequest();
+
+
+            Product product = await _context.Products.FindAsync(id);
+
+            if (product is null) return NotFound();
+
+
+
+            return View(product);
+        }
+
+
+
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+
+
+
+            if (id is null) return BadRequest();     // Eger Id null-sa BadRequest qaytar//
+
+
+            Product product = await _context.Products.FindAsync(id);
+
+            if (product is null) return NotFound();
+
+
+
+            return View(product);
+        }
+
+
+
+
     }
 }

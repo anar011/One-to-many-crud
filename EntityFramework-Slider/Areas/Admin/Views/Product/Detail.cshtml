@@ -1,0 +1,26 @@
+﻿@model Product
+
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+
+<div class="container my-5">
+
+    <input type="text" class="form-control" id="customFile" asp-for="Name" disabled="disabled" />
+    <textarea class="form-control" id="description-text" asp-for="Description" rows="5"></textarea>
+    <input type="text" disabled class="form-control" id="customFile" asp-for="Price" />
+    <input class="form-control" disabled id="customFile" asp-for="Count" />
+    <input class="form-control" disabled id="customFile" asp-for="Category.Name" />
+    <div class="form-group">
+       
+        
+            <img src="~/img/Images" style="width:150px;height:150px;" />
+        
+
+    </div>
+    <a class="btn btn-light mt-3" asp-action="Index">Cancel</a>
+
+</div>

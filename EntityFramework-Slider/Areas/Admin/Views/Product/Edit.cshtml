@@ -1,0 +1,45 @@
+﻿@model ProductEditVM
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<idv class="container my-5">
+
+
+
+    <form class="forms-sample" asp-action="Edit"  method="post" enctype="multipart/form-data">
+
+        <textarea class="form-control" id="category-text" asp-for="Name" rows="5"></textarea>
+        <span class="text-danger" asp-validation-for="Name"></span>
+        <textarea class="form-control" id="description-text" asp-for="Description" rows="5"></textarea>
+        <span class="text-danger" asp-validation-for="Description"></span>
+        <input type="number" class="form-control" id="customFile" asp-for="Price" />
+        <span class="text-danger" asp-validation-for="Price"></span>
+        <input class="form-control" id="customFile" asp-for="Count" />
+        <span class="text-danger" asp-validation-for="Count"></span>
+        <div class="form-group">
+            <label class="my-2">Category</label>                               @*categoriyalari value-text mentiqinde yigir*@
+            <select class="form-control" id="customFile" asp-for="CategoryId" asp-items="@ViewBag.categories"></select>
+        </div>
+
+        <div class="form-group">
+            <label class="my-2">Images</label>
+            <input class="form-control" id="customFile" asp-for="Photos" />
+            <span class="text-danger" asp-validation-for="Photos"></span>
+        </div>
+
+
+    </form>
+
+</idv>
+
+@section Scripts{
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("category-text");
+
+    </script>
+
+}
